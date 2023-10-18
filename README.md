@@ -20,7 +20,7 @@ In addition this project will include:
 
 ## Wireframes
 ### Loading Screen
-![Wireframe 1](https://file%252B.vscode-resource.vscode-cdn.net/Users/g/Library/CloudStorage/GoogleDrive-g%2540modernhuman.xyz/My%2520Drive/%252BApp-Academy/%252BProjects/WK9-JS-Project/%252Bwireframe-images/gary-jiang-js-proj-wireframe-1.png?version%253D1697662119490)
+![Wireframe 1](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-1.png?raw=true)
 
 ## Technologies, Libraries, APIs
 
