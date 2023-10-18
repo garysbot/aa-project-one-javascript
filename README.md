@@ -5,6 +5,8 @@
 Entering a gallery and clicking on an artwork displays information about the art.
 
 
+
+
 ## Functionality & MVPs
 In [tbd], users will be able to:
 - Loading screen and start button.
@@ -17,6 +19,9 @@ In addition this project will include:
 - README explaining technology and their role/functionality in the program.
 - [Reach Feature] Upload your own art and see it hung on the gallery wall.
 - [Reach Feature] Different music in each gallery room.
+
+
+
 
 ## Wireframes
 ### [01] Loading Screen
