@@ -2,7 +2,7 @@
 
 ## Background
 [tbd] is an interactive digital museum that you can browse with your WASD keys. 
-Entering a gallery and clicking on an artwork displays information about the art.
+Entering a gallery and clicking on an artwork displays information about the art.  
 
 
 
