@@ -19,8 +19,20 @@ In addition this project will include:
 - [Reach Feature] Different music in each gallery room.
 
 ## Wireframes
-### Loading Screen
-![Wireframe 1](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-1.png?raw=true)
+### [01] Loading Screen
+![Wireframe 01](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-1.png?raw=true)
+
+### [02] Opening Scene
+![Wireframe 02](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-2.png?raw=true)
+
+### [03] Entering a Gallery
+![Wireframe 03](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-3.png?raw=true)
+
+### [04] Looking at Art
+![Wireframe 04](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-4.png?raw=true)
+
+### [05] Engaging with Art
+![Wireframe 05](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-5.png?raw=true)
 
 ## Technologies, Libraries, APIs
 
