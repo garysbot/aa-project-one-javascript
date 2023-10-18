@@ -1,0 +1,24 @@
+{
+  "name": "tiles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1",
+    "g": "^2.0.1",
+    "img": "^3.0.3",
+    "parcel": "^2.10.0",
+    "three": "^0.133.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "cssnano": "^5.0.8",
+    "postcss": "^8.3.8"
+  }
+}
