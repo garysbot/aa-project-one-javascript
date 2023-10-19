@@ -40,47 +40,53 @@ In addition this project will include:
 ## Technologies, Libraries, APIs
 - Three.js
 - GSAP 
+- lil-gui
 - Pixi.js
 - Node.js
 - Webpack / Vite
 - HTML5 & CSS
+- Vercel
 - The Metropolitan Museum of Art Collection API
 
 
 ## Implementation Timeline
 ### TH 10/19
-- Researching 2D & 3D libraries, frameworks, and workflows.
-- Plan simple code structure for creating a room environment in 2D and 3D.
+- ✅ Identified three.js class objects & inheritance chains for overall game.
+- ✅ Identified three.js camera and camera controllers necessary to update a user's "physical position" in response to their WASD key inputs.
+- ✅ Implemented responsive full-screen experience compatible with desktop, tablet, and mobile. Ability to enter & exit fullscreen with doubleclick & doubletap.
+- ✅ Added lil-gui for UI debugging.
+- ☑️ Plan simple code structure for creating a room environment in 2D and 3D.
+- ☑️ Researching 2D & 3D libraries, frameworks, and workflows.
 
 ### F 10/20
-- Further research on 2D & 3D to decide direction.
-- Build bare bones MVP room environment.
-- Research Met Museum API and desired artwork data to display to users.
+- ☑️ Further research on 2D & 3D to decide direction.
+- ☑️ Build bare bones MVP room environment.
+- ☑️ Research Met Museum API and desired artwork data to display to users.
 
 ### SA 10/21
-- Develop user movement functionality to move throughout the room with WASD keys.
-- Ensure camera and animating loops continue to follow character's POV/FOV.
+- ☑️ Develop user movement functionality to move throughout the room with WASD keys.
+- ☑️ Ensure camera and animating loops continue to follow character's POV/FOV.
 
 
 ### SU 10/22
-- Integrate the Met Museum API to display API data inside of the console of the program.
-- Add art frame object groups to gallery environment walls.
-- Build MVP modal to display text on the wall next to the image.
+- ☑️ Integrate the Met Museum API to display API data inside of the console of the program.
+- ☑️ Add art frame object groups to gallery environment walls.
+- ☑️ Build MVP modal to display text on the wall next to the image.
 
 ### M 10/23
-- User movement, displaying art, and displaying art data is functional but perhaps not fully integrated.
-- Begin integrating the art images and art data modals into the room environment.
+- ☑️ User movement, displaying art, and displaying art data is functional but perhaps not fully integrated.
+- ☑️ Begin integrating the art images and art data modals into the room environment.
 
 ### T 10/24
-- Begin work on a loading screen.
-- Build a second room environment that serves as a corridor of other gallery rooms.
+- ☑️ Begin work on a loading screen.
+- ☑️ Build a second room environment that serves as a corridor of other gallery rooms.
 
 ### W 10/25
-- Integrate the loading screen, corridor, and first gallery together.
-- Testing.
+- ☑️ Integrate the loading screen, corridor, and first gallery together.
+- ☑️ Testing.
 
 ### TH 10/26
-- Writing production readme.
+- ☑️ Writing production readme.
 
 
 ## Checklist

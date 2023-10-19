@@ -1,0 +1,22 @@
+/* removes all the extra space around the edges */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Fixing the canvas to the top left using the webgl class to select it; removes the scrollbars */
+.webgl
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* fixes a Chrome issue where we can highlight the entire canvas */
+  outline: none;
+}
+
+html,
+body {
+  /* Remove any type of scrolling even on mobile/tablet */
+  overflow: hidden;
+}
+
