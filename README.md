@@ -63,7 +63,7 @@ In addition this project will include:
 
 ### SU 10/22
 - Integrate the Met Museum API to display API data inside of the console of the program.
-- Research how to display the art image on "frames" on the wall.
+- Add art frame object groups to gallery environment walls.
 - Build MVP modal to display text on the wall next to the image.
 
 ### M 10/23
