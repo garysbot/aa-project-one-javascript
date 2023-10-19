@@ -39,6 +39,7 @@ In addition this project will include:
 
 ## Technologies, Libraries, APIs
 - Three.js
+- GSAP 
 - Pixi.js
 - Node.js
 - Webpack / Vite
