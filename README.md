@@ -1,12 +1,12 @@
 # aA Project #1: JavaScript
 
 ## Background
-[nameTBD] is an interactive digital museum that you can browse with your WASD keys. 
-Entering a gallery and clicking on an artwork displays information about the art.  
+Artifact Adventure is an interactive digital museum that you can browse with your WASD keys. 
+Entering a gallery and clicking on an artwork displays information about the art.
 
 
 ## Functionality & MVPs
-In [nameTBD], users will be able to:
+In Artifact Adventure, users will be able to:
 - Loading screen and start button.
 - Move throughout the digital museum with the WASD keys; three.js Camera object mutates as user hits WASD directional keys.
 - Integration with The Met Museum API to display data about each artwork from artist, medium, culture, and age of the art; displays via modal window when user engaged with an artwork.
@@ -22,7 +22,7 @@ In addition this project will include:
 
 ## Wireframes
 ### [01] Loading Screen
-![Wireframe 01](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-1.png?raw=true)
+![plot](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-1.png?raw=true)
 
 ### [02] Opening Scene
 ![Wireframe 02](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-2.png?raw=true)
