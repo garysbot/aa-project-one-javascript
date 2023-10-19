@@ -36,36 +36,47 @@ In addition this project will include:
 ### [05] Engaging with Art
 ![Wireframe 05](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/gary-jiang-js-proj-wireframe-5.png?raw=true)
 
-## Technologies, Libraries, APIs
 
+## Technologies, Libraries, APIs
+- Three.js
+- Pixi.js
+- Node.js
+- Webpack / Vite
+- HTML5 & CSS
+- The Metropolitan Museum of Art Collection API
 
 
 ## Implementation Timeline
 ### TH 10/19
--
-## 2D Route
-- Skewing images on HTML Canvas
-- First stackoverflow google search -> jsfiddle link 
-
-
+- Researching 2D & 3D libraries, frameworks, and workflows.
+- Plan simple code structure for creating a room environment in 2D and 3D.
 
 ### F 10/20
--
+- Further research on 2D & 3D to decide direction.
+- Build bare bones MVP room environment.
+- Research Met Museum API and desired artwork data to display to users.
 
 ### SA 10/21
-- 
+- Develop user movement functionality to move throughout the room with WASD keys.
+- Ensure camera and animating loops continue to follow character's POV/FOV.
+
 
 ### SU 10/22
-- 
+- Integrate the Met Museum API to display API data inside of the console of the program.
+- Research how to display the art image on "frames" on the wall.
+- Build MVP modal to display text on the wall next to the image.
 
 ### M 10/23
-- 
+- User movement, displaying art, and displaying art data is functional but perhaps not fully integrated.
+- Begin integrating the art images and art data modals into the room environment.
 
 ### T 10/24
-- 
+- Begin work on a loading screen.
+- Build a second room environment that serves as a corridor of other gallery rooms.
 
 ### W 10/25
-- 
+- Integrate the loading screen, corridor, and first gallery together.
+- Testing.
 
 ### TH 10/26
 - Writing production readme.
