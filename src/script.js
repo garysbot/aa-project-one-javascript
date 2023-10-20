@@ -1,262 +1,210 @@
 import './style.css';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { PointerLockControls } from '../node_modules/three/examples/jsm/controls/PointerLockControls.js';
-import gsap from 'gsap';
-import * as dat from 'lil-gui';
-
-// Color Fixer
-THREE.ColorManagement.enabled = false
-
-/**
- * Textures
-*/
-
-// Texture Image
-const textureTestOne = '/texture-test-one.png'
-
-// TextureLoader - convert image into texture
-const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load(textureTestOne);
-// Reduces the weird pixelation when texture pixel is smaller than render pixel - first line improves performance since we are using THREE.NearestFilter
-texture.generateMipmaps = false
-texture.minFilter = THREE.NearestFilter;
-
-// Reduces bad pixelation when texture pixel is > render pixel
-texture.magFilter = THREE.NearestFilter;
-
-// Combination of repeat & wrap to wrap texture more accurately
-// texture.repeat.x = 2
-// texture.repeat.y = 3
-// texture.wrapS = THREE.RepeatWrapping
-// texture.wrapT = THREE.RepeatWrapping
-
-// Parameter variables for GUI Color
-const parameters = {
-    color: 0xff0000,
-    
-    // adding a spin property function that animates the cube
-    spin: () => {
-        gsap.to(mesh.rotation, { duration: 1, y: mesh.rotation.y + Math.PI * 2 })
-    }
-
-}
-
-// ----------------------------------------------------------------------------------------------- //
-
-/**
- * Base
- */
-
-// Canvas
-const canvas = document.querySelector('canvas.webgl')
-
-// Scene
-const scene = new THREE.Scene()
-
-/**
- * Sizes
- */
-const sizes = {
-    // width: 800,
-    // height: 600
-    // Updating to window.innerWidth & window.innerHeight makes it fullscreen
-    width: window.innerWidth,
-    height: window.innerHeight
-}
-
-// ----------------------------------------------------------------------------------------------- //
-
-/**
- * Object
- */
-
-// // Test Cube
-// const geometry = new THREE.BoxGeometry(1, 1, 1)
-// const material = new THREE.MeshBasicMaterial({ map: texture })
-// const mesh = new THREE.Mesh(geometry, material)
-// scene.add(mesh)
-
-// Museum Container
-const museum = new THREE.Group();
-scene.add(museum);
+import Experience from './Experience/Experience.js'
+// import * as THREE from 'three'
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+// import * as dat from 'lil-gui'
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 
-const museumWalls = new THREE.Mesh(
-    new THREE.BoxGeometry(5, 10, 4),
-    new THREE.MeshStandardMaterial( { color: '#AC8E82'})
-);
+const experience = new Experience(document.querySelector('canvas.webgl'));
 
-museumWalls.position.y = 1.25
-museum.add(museumWalls);
+// /**
+//  * Loaders
+//  */
+// const gltfLoader = new GLTFLoader()
+// const textureLoader = new THREE.TextureLoader()
+// const cubeTextureLoader = new THREE.CubeTextureLoader()
 
-const museumFloors = new THREE.Mesh(
-    new THREE.PlaneGeometry(5, 10),
-    new THREE.MeshStandardMaterial({ color: 0xffff00, side: THREE.DoubleSide })
-);
+// /**
+//  * Base
+//  */
+// // Debug
+// const gui = new dat.GUI()
+// const debugObject = {}
 
-museumWalls.position.y = 0
-museumWalls.position.z = 2
-museumFloors.position.z = 0
+// // Canvas
+// const canvas = document.querySelector('canvas.webgl')
 
-museum.add(museumFloors);
+// // Scene
+// const scene = new THREE.Scene()
 
-// ----------------------------------------------------------------------------------------------- //
+// /**
+//  * Update all materials
+//  */
+// const updateAllMaterials = () =>
+// {
+//     scene.traverse((child) =>
+//     {
+//         if(child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial)
+//         {
+//             // child.material.envMap = environmentMap
+//             child.material.envMapIntensity = debugObject.envMapIntensity
+//             child.material.needsUpdate = true
+//             child.castShadow = true
+//             child.receiveShadow = true
+//         }
+//     })
+// }
 
-/**
- * Lighting
- */
+// /**
+//  * Environment map
+//  */
+// const environmentMap = cubeTextureLoader.load([
+//     '/textures/environmentMap/px.jpg',
+//     '/textures/environmentMap/nx.jpg',
+//     '/textures/environmentMap/py.jpg',
+//     '/textures/environmentMap/ny.jpg',
+//     '/textures/environmentMap/pz.jpg',
+//     '/textures/environmentMap/nz.jpg'
+// ])
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-scene.add(ambientLight);
+// environmentMap.colorSpace = THREE.SRGBColorSpace
 
+// // scene.background = environmentMap
+// scene.environment = environmentMap
 
-// ----------------------------------------------------------------------------------------------- //
+// debugObject.envMapIntensity = 0.4
+// gui.add(debugObject, 'envMapIntensity').min(0).max(4).step(0.001).onChange(updateAllMaterials)
 
+// /**
+//  * Models
+//  */
+// let foxMixer = null
 
-/**
- * Camera
- */
+// gltfLoader.load(
+//     '/models/Fox/glTF/Fox.gltf',
+//     (gltf) =>
+//     {
+//         // Model
+//         gltf.scene.scale.set(0.02, 0.02, 0.02)
+//         scene.add(gltf.scene)
 
-// Base camera
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 0
-camera.position.y = -10
-camera.position.z = 5
-scene.add(camera)
+//         // Animation
+//         foxMixer = new THREE.AnimationMixer(gltf.scene)
+//         const foxAction = foxMixer.clipAction(gltf.animations[0])
+//         foxAction.play()
 
-// Controls
-const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
+//         // Update materials
+//         updateAllMaterials()
+//     }
+// )
 
+// /**
+//  * Floor
+//  */
+// const floorColorTexture = textureLoader.load('textures/dirt/color.jpg')
+// floorColorTexture.colorSpace = THREE.SRGBColorSpace
+// floorColorTexture.repeat.set(1.5, 1.5)
+// floorColorTexture.wrapS = THREE.RepeatWrapping
+// floorColorTexture.wrapT = THREE.RepeatWrapping
 
-// ----------------------------------------------------------------------------------------------- //
+// const floorNormalTexture = textureLoader.load('textures/dirt/normal.jpg')
+// floorNormalTexture.repeat.set(1.5, 1.5)
+// floorNormalTexture.wrapS = THREE.RepeatWrapping
+// floorNormalTexture.wrapT = THREE.RepeatWrapping
 
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
-})
-renderer.outputColorSpace = THREE.LinearSRGBColorSpace
-renderer.setSize(sizes.width, sizes.height)
+// const floorGeometry = new THREE.CircleGeometry(5, 64)
+// const floorMaterial = new THREE.MeshStandardMaterial({
+//     map: floorColorTexture,
+//     normalMap: floorNormalTexture
+// })
+// const floor = new THREE.Mesh(floorGeometry, floorMaterial)
+// floor.rotation.x = - Math.PI * 0.5
+// scene.add(floor)
 
-// ----------------------------------------------------------------------------------------------- //
+// /**
+//  * Lights
+//  */
+// const directionalLight = new THREE.DirectionalLight('#ffffff', 4)
+// directionalLight.castShadow = true
+// directionalLight.shadow.camera.far = 15
+// directionalLight.shadow.mapSize.set(1024, 1024)
+// directionalLight.shadow.normalBias = 0.05
+// directionalLight.position.set(3.5, 2, - 1.25)
+// scene.add(directionalLight)
 
+// gui.add(directionalLight, 'intensity').min(0).max(10).step(0.001).name('lightIntensity')
+// gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
+// gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
+// gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
 
-/**
- * Animate
- */
-const clock = new THREE.Clock()
+// /**
+//  * Sizes
+//  */
+// const sizes = {
+//     width: window.innerWidth,
+//     height: window.innerHeight
+// }
 
-const tick = () =>
-{
-    const elapsedTime = clock.getElapsedTime()
+// window.addEventListener('resize', () =>
+// {
+//     // Update sizes
+//     sizes.width = window.innerWidth
+//     sizes.height = window.innerHeight
 
-    // Update controls
-    controls.update()
+//     // Update camera
+//     camera.aspect = sizes.width / sizes.height
+//     camera.updateProjectionMatrix()
 
-    // Render
-    renderer.render(scene, camera)
+//     // Update renderer
+//     renderer.setSize(sizes.width, sizes.height)
+//     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+// })
 
-    // Call tick again on the next frame
-    window.requestAnimationFrame(tick)
-}
+// /**
+//  * Camera
+//  */
+// // Base camera
+// const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.1, 100)
+// camera.position.set(6, 4, 8)
+// scene.add(camera)
 
-// Animates it all
-tick()
+// // Controls
+// const controls = new OrbitControls(camera, canvas)
+// controls.enableDamping = true
 
-// ----------------------------------------------------------------------------------------------- //
+// /**
+//  * Renderer
+//  */
+// const renderer = new THREE.WebGLRenderer({
+//     canvas: canvas,
+//     antialias: true
+// })
+// renderer.useLegacyLights = false
+// renderer.toneMapping = THREE.CineonToneMapping
+// renderer.toneMappingExposure = 1.75
+// renderer.shadowMap.enabled = true
+// renderer.shadowMap.type = THREE.PCFSoftShadowMap
+// renderer.setClearColor('#211d20')
+// renderer.setSize(sizes.width, sizes.height)
+// renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-/**
- * Event Listeners
- */
+// /**
+//  * Animate
+//  */
+// const clock = new THREE.Clock()
+// let previousTime = 0
 
-// Window Resizing
-window.addEventListener('resize', () => {
-    // console.log('window has been resized')
+// const tick = () =>
+// {
+//     const elapsedTime = clock.getElapsedTime()
+//     const deltaTime = elapsedTime - previousTime
+//     previousTime = elapsedTime
 
-    // Updating window width & height according to resize
-    sizes.width = window.innerWidth;
-    sizes.height = window.innerHeight;
+//     // Update controls
+//     controls.update()
 
-    // Update the camera AR
-    camera.aspect = sizes.width / sizes.height;
-    // Required when updating aspect
-    camera.updateProjectionMatrix();
-    // Required as well
-    renderer.setSize(sizes.width, sizes.height)
-    // Standardizing pixel ratio to 2 to resolve aliasing issue
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+//     // Fox animation
+//     if(foxMixer)
+//     {
+//         foxMixer.update(deltaTime)
+//     }
 
-})
+//     // Render
+//     renderer.render(scene, camera)
 
-// Double-Click to Fullscreen
-window.addEventListener('dblclick', ()=> {
-    // console.log('double click');
+//     // Call tick again on the next frame
+//     window.requestAnimationFrame(tick)
+// }
 
-    // Conditionals to account for Safari functionality
-    const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement
-
-    // are we currently in fullscreen?
-    if (!fullscreenElement){
-        // go fullscreen; call it on the canvas
-        // console.log('go fullscreen');
-        if (canvas.requestFullscreen){
-            canvas.requestFullscreen();
-        } else if (canvas.webkitFullscreenElement){
-            canvas.webkitRequestFullscreen();
-        }
-    } else {
-        // exit fullscreen
-        // console.log('exit fullscreen');
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen){
-            document.webkitExitFullscreen;
-        }
-        
-    }
-
-})
-
-
-// ----------------------------------------------------------------------------------------------- //
-
-
-
-/**
- * Debug
- */
-// Adds the GUI panel to the program
-const gui = new dat.GUI();
-// Adds specific elements into GUI panel to allow users to modify
-gui
-.add(mesh.position, 'y')
-.min(-3)
-.max(3)
-.step(0.01)
-.name('Elevation')
-
-// Enable/disable wireframe in GUI
-gui
-.add(material, 'wireframe')
-.name('Wireframe')
-
-// Change color feature in GUI
-gui
-.addColor(parameters, 'color')
-.onChange(() => {
-    material.color.set(parameters.color)
-})
-
-// Spin feature in GUI
-gui
-.add(parameters, 'spin')
-
-gui
-.add(camera.position, 'x')
-.min(0)
-.max(0)
-.name('Reset Camera X')
-
+// tick()
