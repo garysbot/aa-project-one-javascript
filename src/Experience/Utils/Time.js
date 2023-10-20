@@ -13,11 +13,23 @@ export default class Time extends EventEmitter {
     this.elapsed = 0;
     // time spent since prev frame; 16ms is close to the time between two frames
     this.delta = 16;
+
+    window.requestAnimationFrame(() => {
+      this.tick();
+    });
+
   }
 
   tick(){
     // Test
-    console.log('tick');
+    const currentTime = Date.now();
+    this.delta = currentTime - this.current;
+    this.current = currentTime;
+    this.elapsed = this.current - this.start;
+
+    this.trigger('tick');
+
+    // console.log('tick');
 
     window.requestAnimationFrame(() => {
       this.tick();

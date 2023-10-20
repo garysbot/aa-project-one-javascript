@@ -106,3 +106,16 @@ In addition this project will include:
 - No .DS_Store files / debuggers / console.logs.
 - Organized file structure, with /src and /dist directories.
 
+<br>
+
+## Technical Implementation
+### Classes
+- Sizes
+- sources
+- Debug
+- Floor
+- World
+- Environment
+- Resources
+- Renderer
+- Camera
