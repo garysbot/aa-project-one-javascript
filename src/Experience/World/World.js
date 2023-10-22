@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import Experience from "../Experience";
 import Environment from "./Environment";
 import Floor from './Floor';
+import Walls from './Wall';
 import Fox from './Fox';
 
 export default class World {
@@ -11,6 +12,7 @@ export default class World {
     this.resources = this.experience.resources;
 
     this.resources.on('ready', () => {
+      this.wall = new Wall();
       this.floor = new Floor();
       this.fox = new Fox();
       this.environment = new Environment();

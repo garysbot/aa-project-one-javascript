@@ -1,15 +1,14 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
 import EventEmitter from "./EventEmitter";
 
 export default class Resources extends EventEmitter{
   constructor(sources){
     super();
-
+    
+    // Importing textures from sources.js
     this.sources = sources;
 
-    // console.log(this.sources);
     // Setup
     this.items = {};
     this.toLoad = this.sources.length;
@@ -44,6 +43,10 @@ export default class Resources extends EventEmitter{
           (file) => {
             // console.log(source, file);
             this.sourceLoaded(source, file)
+          },
+          undefined, // onProgress callback, can be undefined if you don't need it
+          (error) => {
+            console.error('Error loading texture:', error);
           }
         );
       }

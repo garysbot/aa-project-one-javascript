@@ -24,7 +24,7 @@ export default class Experience
     // console.log('Hello heres the experience');
     
     // Global Access
-    window.experience = this;
+    // window.experience = this;
 
     // Options
     this.canvas = canvas;
