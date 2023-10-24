@@ -1,42 +1,50 @@
 import * as THREE from '/node_modules/three/build/three.module.js';
+import Debug from './Experience/Utils/Debug.js';
 import { PointerLockControls } from '/node_modules/three/examples/jsm/controls/PointerLockControls.js';
+import Experience from './Experience/Experience.js';
 
 // ! Setup ----------------------------------------------------------------------------------
 // * Move to Experience class
-let camera
-let scene
-let renderer
-let controls
+let debug       // * Done
+let camera      // * Done
+let scene      // * Done
+let renderer    // ^ Incomplete
+let controls    // ^ Incomplete
 
-const objects = [];
+const objects = [];     // ~ Unknown
 
-let raycaster;
+let raycaster;          // ~ Unknown
 
-let moveForward = false;
-let moveBackward = false;
-let moveLeft = false;
-let moveRight = false;
-let canJump = false;
+let moveForward = false;    // ^ Incomplete
+let moveBackward = false;   // ^ Incomplete
+let moveLeft = false;       // ^ Incomplete
+let moveRight = false;      // ^ Incomplete
+let canJump = false;        // ^ Incomplete
 
-let prevTime = performance.now();
-const velocity = new THREE.Vector3();
-const direction = new THREE.Vector3();
+let prevTime = performance.now();         // ^ Incomplete
+const velocity = new THREE.Vector3();     // ^ Incomplete
+const direction = new THREE.Vector3();    // ^ Incomplete
 
-init();
-animate();
+
+init();       // ^ Incomplete
+animate();    // ^ Incomplete
 
 
 // ! Main Experience -----------------------------------------------------------------------
 function init() {
-  // ^ Setup -------------------------------------------------------------------------------
+
+
+  // ** Setup -------------------------------------------------------------------------------
   camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
+  // camera.position.x = 1;
   camera.position.y = 10;
+  camera.position.z = 20;
 
   scene = new THREE.Scene();
-  scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
+  scene.fog = new THREE.Fog( 0xffffff, 0, 750 ); // ** Environment ----- Complete
 
 
-  // ^ EnvironmentMap Textures -------------------------------------------------------------
+  // ** EnvironmentMap Textures -------------------------------------------------------------
   const textureLoader = new THREE.TextureLoader();
   const environmentMap = textureLoader.load('https://i.ibb.co/Ssmd3tG/Anime-Sky.png');
   environmentMap.mapping = THREE.EquirectangularReflectionMapping;
@@ -44,17 +52,17 @@ function init() {
   scene.background = environmentMap;
 
 
-  // ^ Lights ------------------------------------------------------------------------------
+  // ** Lights ------------------------------------------------------------------------------
   const light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 2.5 );
   light.position.set( 0.5, 1, 0.75 );
   scene.add( light );
   
 
-  // ^ Controls ------------------------------------------------------------------------------
+  // ** Controls ------------------------------------------------------------------------------
   controls = new PointerLockControls( camera, document.body );
 
   
-  // ^ Game Instructions ---------------------------------------------------------------------
+  // ** Game Instructions ---------------------------------------------------------------------
   const blocker = document.getElementById( 'blocker' );
   const instructions = document.getElementById( 'instructions' );
   
@@ -194,30 +202,32 @@ window.addEventListener( 'resize', onWindowResize );
 // ! met Museum
 
 
-// const url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/3410';
+const url = 'https://collectionapi.metmuseum.org/public/collection/v1/objects/3410';
 
-// // Fetch object data
-// fetch(url)
-//   .then(response => response.json())
-//   .then(data => {
-//     // console.log(data);
-//     // console.log(data.additionalImages.length !== 0);
-//     console.log(data.primaryImage);
-//     // const metArt = data.primaryImage;
-//     // const textureLoader = new THREE.TextureLoader();
-//     // const artTexture = textureLoader.load(metArt);
+// Fetch object data
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // console.log(data);
+    // console.log(data.additionalImages.length !== 0);
+    console.log(data.primaryImage);
+    
+    const textureLoader = new THREE.TextureLoader();
+    
 
 
-//     // const imageUrl = data.primaryImage;  // Get the primary image URL
-//     // const textureLoader = new THREE.TextureLoader();  // Create a texture loader
-//     // const texture = textureLoader.load(imageUrl);  // Load the texture from the image URL
-//     // const material = new THREE.MeshBasicMaterial({ map: texture });  // Create a material using the texture
-//     // const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), material);  // Create a mesh using the material
-//     // scene.add(mesh);  // Add the mesh to the scene
-//   })
-//   .catch(error => {
-//     console.error('Error fetching data:', error);
-//   });
+    // const imageUrl = data.primaryImage;  // Get the primary image URL
+    // const textureLoader = new THREE.TextureLoader();  // Create a texture loader
+    // const texture = textureLoader.load(imageUrl);  // Load the texture from the image URL
+    const artTexture = textureLoader.load(metArt);
+    const material = new THREE.MeshBasicMaterial({ map: artTexture });  // Create a material using the texture
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), material);  // Create a mesh using the material
+    const metArt = data.primaryImage;
+    scene.add(mesh);  // Add the mesh to the scene
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
 
 
 // ! Main Animation Controller -------------------------------------------------------------------
