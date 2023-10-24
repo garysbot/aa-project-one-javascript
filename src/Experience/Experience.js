@@ -42,14 +42,14 @@ export default class Experience{
     this.instructionOverlay();
   }
 
-  // ! Debug ----------------------------------------------
+  // ! Debug --Not Completely Sure if Necessary--------------------------------------------
   resize(){
     console.log('SUCCESS: Experience:resize() Invoked')
     this.camera.resize()
     this.renderer.resize()
   }
 
-  // ! Debug ----------------------------------------------
+  // ! Debug --Not Completely Sure if Necessary--------------------------------------------
   update(){
     console.log('SUCCESS: Experience:update() Invoked')
     this.camera.update()

@@ -27,6 +27,7 @@ export default class Camera {
 
     document.addEventListener( 'keydown', this.onKeyDown );
     document.addEventListener( 'keyup', this.onKeyUp );
+    window.addEventListener( 'resize', this.resize );
 
   }
 
@@ -110,15 +111,18 @@ export default class Camera {
       }            
   };
 
-  resize(){
+  // ** Good to go  ----------------------------------------------
+  resize = () => {
     console.log('SUCCESS: Camera:resize() Invoked')
     this.instance.aspect = this.sizes.width / this.sizes.height
     this.instance.updateProjectionMatrix()
   }
 
-  update(){
-    console.log('SUCCESS: Camera:update() Invoked')
-    this.controls.update()
-  }
+  // ** Good to go -------------------------------------------------
+  // ^ Not necessary as PointerLock doesn't require update() unlike OrbitControls
+  // update = () => {
+  //   console.log('SUCCESS: Camera:update() Invoked')
+  //   this.controls.update()
+  // }
 
 };
