@@ -1,8 +1,12 @@
 import * as THREE from 'three';
 import { PointerLockControls } from '../node_modules/three/examples/jsm/controls/PointerLockControls';
 
-// ! Camera
-let camera, scene, renderer, controls;
+// ! Setup ----------------------------------------------------------------------------------
+// * Move to Experience class
+let camera
+let scene
+let renderer
+let controls
 
 const objects = [];
 
@@ -17,13 +21,14 @@ let canJump = false;
 let prevTime = performance.now();
 const velocity = new THREE.Vector3();
 const direction = new THREE.Vector3();
-const vertex = new THREE.Vector3();
-const color = new THREE.Color();
 
 init();
 animate();
 
+
+// ! Main Experience -----------------------------------------------------------------------
 function init() {
+  // ^ Setup -------------------------------------------------------------------------------
   camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
   camera.position.y = 10;
 
@@ -36,18 +41,18 @@ function init() {
   const environmentMap = textureLoader.load('https://i.ibb.co/Ssmd3tG/Anime-Sky.png');
   environmentMap.mapping = THREE.EquirectangularReflectionMapping;
   environmentMap.colorSpace = THREE.SRGBColorSpace;
-  // ^ EnvironmentMap Textures -------------------------------------------------------------
+  scene.background = environmentMap;
 
 
   // ^ Lights ------------------------------------------------------------------------------
   const light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 2.5 );
   light.position.set( 0.5, 1, 0.75 );
   scene.add( light );
-  // ^ Lights --------------------------------------------------------------------------------
   
+
   // ^ Controls ------------------------------------------------------------------------------
   controls = new PointerLockControls( camera, document.body );
-  // ^ Controls ------------------------------------------------------------------------------
+
   
   // ^ Game Instructions ---------------------------------------------------------------------
   const blocker = document.getElementById( 'blocker' );
@@ -75,8 +80,8 @@ function init() {
   } );
   
   scene.add( controls.getObject() );
-  // ^ Game Instructions ---------------------------------------------------------------------
   
+
   // ^ User WASD Controls --------------------------------------------------------------------
   const onKeyDown = function ( event ) {
     switch ( event.code ) {
@@ -141,7 +146,6 @@ function init() {
   document.addEventListener( 'keydown', onKeyDown );
   document.addEventListener( 'keyup', onKeyUp );
   raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, - 1, 0 ), 0, 10 );
-  // ^ User WASD Controls --------------------------------------------------------------------
   
 
   // ^ Art Objects -----------------------------------------------
@@ -152,17 +156,11 @@ function init() {
   const art = new THREE.Mesh( artGeometry, artMaterial );
   art.position.y = 25;
   scene.add( art );
-  // ^ Art Objects -----------------------------------------------
   
+
   // ^ Floor -----------------------------------------------------
   let floorGeometry = new THREE.CircleGeometry( 100, 64, 0, 2 * Math.PI );
   floorGeometry.rotateX( - Math.PI / 2 );
-
-  let position = floorGeometry.attributes.position;
-
-  position = floorGeometry.attributes.position;
-  const colorsFloor = [];
-
   const floorTexturePathURL = 'https://i.ibb.co/VqxZ4WR/color.jpg';
   const floorTexture = textureLoader.load(floorTexturePathURL);
   floorTexture.repeat.set(20, 20);
@@ -172,7 +170,6 @@ function init() {
 
   const floor = new THREE.Mesh( floorGeometry, floorMaterial );
   scene.add( floor );
-  // ^ Floor -----------------------------------------------------
 
   
   // ^ Renderer -----------------------------------------------------
@@ -180,19 +177,18 @@ function init() {
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
   document.body.appendChild( renderer.domElement );
-  // ^ Renderer ------------------------------------------------------
 
-  // Adds the Skybox Environment Map
-  scene.background = environmentMap;
-  window.addEventListener( 'resize', onWindowResize );
+
 
 }
 
+// ^ Window Resizing Helper -----------------------------------------
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
+window.addEventListener( 'resize', onWindowResize );
 
 
 // ! met Museum
@@ -224,7 +220,7 @@ function onWindowResize() {
 //   });
 
 
-
+// ! Main Animation Controller -------------------------------------------------------------------
 function animate() {
   requestAnimationFrame( animate );
   const time = performance.now();
