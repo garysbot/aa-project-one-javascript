@@ -3,7 +3,7 @@ import Experience from '../Experience.js'
 
 export default class Environment{
   constructor(){
-    console.log(`SUCCESS: Environment Class`)
+    // console.log(`SUCCESS: Environment Class`)
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.debug = this.experience.debug;
