@@ -3,15 +3,17 @@ import Experience from '../Experience.js'
 
 export default class Environment{
   constructor(){
+    console.log(`SUCCESS: Environment Class`)
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.debug = this.experience.debug;
 
     if(this.debug.active){
-      this.debugFolder = this.debug.ui.addFolder('environment');
+      this.debugFolder = this.debug.ui.addFolder('Environment');
     }
 
     this.setLight();
+    this.setEnvironmentMap();
   };
 
   setLight(){
@@ -22,8 +24,32 @@ export default class Environment{
 
     if (this.debug.active){
       this.debugFolder
-        .add(this.light, 'myString')
-        .name('skyColor')
+        .add(this.light, 'intensity')
+        .name('Light Intensity')
+        .min(0)
+        .max(5)
+        .step(0.10)
+
+      this.debugFolder
+        .add(this.light.position, 'x')
+        .name('Light Position X')
+        .min(0)
+        .max(1.5)
+        .step(0.10)
+      
+      this.debugFolder
+        .add(this.light.position, 'y')
+        .name('Light Position Y')
+        .min(0)
+        .max(3.0)
+        .step(0.10)
+
+      this.debugFolder
+        .add(this.light.position, 'z')
+        .name('Light Position Z')
+        .min(0)
+        .max(1.5)
+        .step(0.10)
     }
   };
 
