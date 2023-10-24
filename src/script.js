@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { PointerLockControls } from '../node_modules/three/examples/jsm/controls/PointerLockControls';
+import { PointerLockControls } from 'three/examples/jsm/controls/PointerLockControls';
 
 // ! Setup ----------------------------------------------------------------------------------
 // * Move to Experience class
@@ -150,7 +150,7 @@ function init() {
 
   // ^ Art Objects -----------------------------------------------
   const artTexture = textureLoader.load('./art/dt4855.jpg')
-  console.log(artTexture);
+  // console.log(artTexture);
   const artGeometry = new THREE.PlaneGeometry(50, 50);
   const artMaterial = new THREE.MeshBasicMaterial( { map: artTexture, side: THREE.DoubleSide });
   const art = new THREE.Mesh( artGeometry, artMaterial );
