@@ -336,14 +336,14 @@ function init() {
     gui.add(light, 'intensity')
     .name('Light Intensity')
     .min(0)
-    .max(5)
+    .max(1)
     .step(0.10)
 
     scene.backgroundBlurriness = 0.00
-    scene.backgroundIntensity = 5
+    scene.backgroundIntensity = 2
     
     gui.add(scene, 'backgroundBlurriness').min(0).max(1).step(0.001)
-    gui.add(scene, 'backgroundIntensity').min(0).max(10).step(0.001)
+    gui.add(scene, 'backgroundIntensity').min(0.5).max(2).step(0.001)
      
   }
   
