@@ -8,18 +8,29 @@
 </head>
 <body>
     <div id="blocker">
-        <div id="instructions">
-            <p style="font-size:36px">
-                Welcome to Artifact Adventure
-            </p>
-            <p>
+        <div id="content">
+            <h1>Welcome to Artifact Adventure</h1>
+            <p id="desc">Curated collections from The Met Museum API rendered in Three.js<br/> Designed & developed by Gary Jiang.</p>
+            
+            
+            
+
+            <h3>Instructions</h3>
+            <p id="instructions">
                 Move: WASD<br/>
+                Look: MOUSE<br/>
                 Jump: SPACE<br/>
-                Look: MOUSE
+                Pause: ESC
             </p>
+
+            <div class="links">
+                <a href="https://google.com"><img src="./static/logos/mysite.png" alt="Gary Jiang's Portfolio" id="mysite"></a>
+                <a href="https://github.com/garysbot"><img src="./static/logos/github.png" alt="Github" id="github"></a>
+                <a href="https://linkedin.com/in/garyjiang"><img src="./static/logos/linkedin.png" alt="LinkedIn" id="linkedin"></a>
+            </div>
+            
         </div>
     </div>
-    <canvas class="webgl"></canvas>
-    <script type="module" src="./src/script.js" defer></script>
+    <script type="module" src="./src/script.js"></script>
 </body>
 </html>
