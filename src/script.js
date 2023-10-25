@@ -37,18 +37,18 @@ function init() {
 
   
 
-  console.log(`INVOKED: init()`)
+  // console.log(`INVOKED: init()`)
   // ^ Setup -------------------------------------------------------------------------------
   camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );
   camera.position.y = 10;
   camera.position.z = 50;
-  console.log(`init() - camera: Object3D? [${camera.isObject3D}] | Visible? [${camera.visible}] | id: [${camera.id}]`);
+  // console.log(`init() - camera: Object3D? [${camera.isObject3D}] | Visible? [${camera.visible}] | id: [${camera.id}]`);
 
   
 
   scene = new THREE.Scene();
   scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
-  console.log(`init() - scene: Object3D? [${scene.isObject3D}] | Visible? [${scene.visible}] | id: [${scene.id}]`);
+  // console.log(`init() - scene: Object3D? [${scene.isObject3D}] | Visible? [${scene.visible}] | id: [${scene.id}]`);
 
   // ^ EnvironmentMap Textures -------------------------------------------------------------
   const textureLoader = new THREE.TextureLoader();
@@ -97,7 +97,7 @@ function init() {
     instructions.style.display = '';
     
   } );
-  console.log(`controls.getObject(): ${Object.values(controls.getObject())}`)
+  // console.log(`controls.getObject(): ${Object.values(controls.getObject())}`)
   scene.add( controls.getObject() );
   
 
