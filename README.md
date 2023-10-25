@@ -22,19 +22,19 @@ In addition this project will include:
 
 ## Wireframes
 ### [01] Loading Screen
-![plot](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/v2/gary-jiang-js-proj-wireframe-1.png?raw=true)
+![plot](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/1.png)
 
 ### [02] Opening Scene
-![Wireframe 02](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/v2/gary-jiang-js-proj-wireframe-2.png?raw=true)
+![Wireframe 02](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/2.png)
 
 ### [03] Entering a Gallery
-![Wireframe 03](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/v2/gary-jiang-js-proj-wireframe-3.png?raw=true)
+![Wireframe 03](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/3.png)
 
 ### [04] Looking at Art
-![Wireframe 04](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/v2/gary-jiang-js-proj-wireframe-4.png?raw=true)
+![Wireframe 04](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/4.png)
 
 ### [05] Engaging with Art
-![Wireframe 05](https://github.com/garysbot/aa-project-one-javascript/blob/main/+wireframe-images/v2/gary-jiang-js-proj-wireframe-5.png?raw=true)
+![Wireframe 05](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/5.png)
 
 
 ## Technologies, Libraries, APIs
