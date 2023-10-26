@@ -141,6 +141,7 @@ setLight(){
 - Sketchfab
 - DALL-E 3
 - The Metropolitan Museum of Art Collection API
+<br>
 
 ## Future
 - To-dos
