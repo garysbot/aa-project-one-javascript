@@ -33,7 +33,7 @@ Artifact Adventure is composed of the following components:
 - Environment Map
 - Renderer
 
-### The Experience
+## The Experience
 ![Artifact Adventure Environment GIF](static/readme/gifs/environment.gif)<br>
 
 The `Experience` class manages the complete experience by:
@@ -59,7 +59,6 @@ this.time.on('tick', () => {
 
 ```javascript
 // Experience.js
-// ...
 requestAnimationFrame(this.update);
 
 const time = performance.now();
@@ -74,7 +73,7 @@ this.camera.controls.moveForward( - velocity.z * delta );
 this.renderer.instance.render( this.scene, this.camera );
 this.renderer.update();
 ```
-> **Note** Excerpted code.
+> **Note:** Excerpted for length & clarity.
 
 **Camera**<br>
   `camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );`<br>
