@@ -75,7 +75,7 @@ this.camera.controls.moveForward( - velocity.z * delta );
 this.renderer.instance.render( this.scene, this.camera );
 this.renderer.update();
 ```
-> The update() class function listens for WASD key presses to trigger and update camera movement while re-rendering in real-time to simulate movement throughout the 3D environment.
+> The `update()` class function listens for WASD key presses to trigger and update camera movement while re-rendering in real-time to simulate movement throughout the 3D environment.
 > **Note:** Excerpted for length & clarity.
 
 <br><br>
