@@ -42,7 +42,7 @@ The `Experience` class manages the complete experience by:
 2. Instantiating all necessary component classes and,
 3. Handles persistent animation via a `requestAnimationFrame` loop.
 
-```
+```javascript
 // Experience.js
 
 constructor(_canvas){
