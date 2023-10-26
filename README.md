@@ -129,7 +129,7 @@ setLight(){
   //...
 }
 ```
-<br><br>
+<br>
 
 ## Tech Stack
 - Node.js
@@ -142,7 +142,5 @@ setLight(){
 - DALL-E 3
 - The Metropolitan Museum of Art Collection API
 
-## Production README
-- To-dos / future features.
-- No .DS_Store files / debuggers / console.logs.
-- Organized file structure, with /src and /dist directories.
+## Future
+- To-dos
