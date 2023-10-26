@@ -74,6 +74,7 @@ this.renderer.instance.render( this.scene, this.camera );
 this.renderer.update();
 ```
 > **Note:** Excerpted for length & clarity.
+<br><br>
 
 **Camera**<br>
   `camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );`<br>
