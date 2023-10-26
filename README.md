@@ -43,23 +43,38 @@ The `Experience` class manages the complete experience by:
 
 ```javascript
 // Experience.js
-  this.debug = new Debug();
-  this.sizes = new Sizes();
-  this.time = new Time()
-  this.scene = new THREE.Scene();
-  this.camera = new Camera()
-  this.environment = new Environment();
-  this.renderer = new Renderer()
+this.debug = new Debug();
+this.sizes = new Sizes();
+this.time = new Time()
+this.scene = new THREE.Scene();
+this.camera = new Camera()
+this.environment = new Environment();
+this.renderer = new Renderer()
 
-  this.time.on('tick', () => {
-    this.update();
-  })
+this.time.on('tick', () => {
+  this.update();
+})
 ```
 <br>
 
 ```javascript
+// Experience.js
+// ...
+requestAnimationFrame(this.update);
 
+const time = performance.now();
+const delta = ( time - prevTime ) / 1000;
+
+velocity.x -= velocity.x * 10.0 * delta;
+velocity.z -= velocity.z * 10.0 * delta;
+
+this.camera.controls.moveRight( - velocity.x * delta );
+this.camera.controls.moveForward( - velocity.z * delta );
+
+this.renderer.instance.render( this.scene, this.camera );
+this.renderer.update();
 ```
+> **Note** Excerpted code.
 
 **Camera**<br>
   `camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );`<br>
