@@ -36,7 +36,7 @@ function init() {
 
   // ^ EnvironmentMap -------------------------------------------------------------
   const textureLoader = new THREE.TextureLoader();
-  const environmentMapURL = './textures/environmentMap/cyberpunk.png'
+  const environmentMapURL = '../textures/environmentMap/cyberpunk.png'
   const environmentMap = textureLoader.load(environmentMapURL);
   environmentMap.mapping = THREE.EquirectangularReflectionMapping;
   environmentMap.colorSpace = THREE.SRGBColorSpace;
@@ -124,25 +124,25 @@ function init() {
   raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, - 1, 0 ), 0, 10 );
   
   // ^ Art Objects -----------------------------------------------
-  const artTexture1 = textureLoader.load('./art/0/0.png')
+  const artTexture1 = textureLoader.load('../art/0/0.png')
   const art1 = new THREE.Mesh(
     new THREE.PlaneGeometry(50, 50),
     new THREE.MeshStandardMaterial( { map: artTexture1, side: THREE.DoubleSide } )
   );
 
-  const artTexture2 = textureLoader.load('./art/0/1.png')
+  const artTexture2 = textureLoader.load('../art/0/1.png')
   const art2 = new THREE.Mesh(
     new THREE.PlaneGeometry(25, 40),
     new THREE.MeshStandardMaterial( { map: artTexture2, side: THREE.DoubleSide } )
   );
 
-  const artTexture3 = textureLoader.load('./art/0/2.png')
+  const artTexture3 = textureLoader.load('../art/0/2.png')
   const art3 = new THREE.Mesh(
     new THREE.PlaneGeometry(50, 50),
     new THREE.MeshStandardMaterial( { map: artTexture3, side: THREE.DoubleSide } )
   );
 
-  const artTexture4 = textureLoader.load('./art/0/3.png')
+  const artTexture4 = textureLoader.load('../art/0/3.png')
   const art4 = new THREE.Mesh(
     new THREE.PlaneGeometry(30, 40),
     new THREE.MeshStandardMaterial( { map: artTexture4, side: THREE.DoubleSide } )
@@ -196,11 +196,11 @@ function init() {
   let floorGeometry = new THREE.CircleGeometry( 100, 64, 0, 2 * Math.PI );
   floorGeometry.rotateX( - Math.PI / 2 );
 
-  const floorBaseTexture = textureLoader.load('./textures/floor/darkmarble/Marble_Blue_004_basecolor.jpg');
-  const floorNormalTexture = textureLoader.load('./textures/floor/darkmarble/Marble_Blue_004_normal');
-  const floorRoughnessTexture = textureLoader.load('./textures/floor/darkmarble/Marble_Blue_004_roughness.jpg');
-  const floorHeightTexture = textureLoader.load('./textures/floor/darkmarble/Marble_Blue_004_height.png');
-  const floorAOTexture = textureLoader.load('./textures/floor/darkmarble/Marble_Blue_004_ambientOcclusion.jpg');
+  const floorBaseTexture = textureLoader.load('../textures/floor/darkmarble/Marble_Blue_004_basecolor.jpg');
+  const floorNormalTexture = textureLoader.load('../textures/floor/darkmarble/Marble_Blue_004_normal');
+  const floorRoughnessTexture = textureLoader.load('../textures/floor/darkmarble/Marble_Blue_004_roughness.jpg');
+  const floorHeightTexture = textureLoader.load('../textures/floor/darkmarble/Marble_Blue_004_height.png');
+  const floorAOTexture = textureLoader.load('../textures/floor/darkmarble/Marble_Blue_004_ambientOcclusion.jpg');
 
   floorBaseTexture.repeat.set(10.5, 10.5);
   floorBaseTexture.wrapS = THREE.RepeatWrapping;
@@ -238,14 +238,14 @@ function init() {
     const gui = new GUI();
     
     const envMapOptions = {
-      'Cyberpunk': './textures/environmentMap/cyberpunk.png',
-      'Fantasy Village': './textures/environmentMap/fantasy-village.png',
-      'Manga': './textures/environmentMap/manga.png',
-      'Medieval': './textures/environmentMap/medieval.png',
-      'Snowy NYC': './textures/environmentMap/snowynyc.png'
+      'Cyberpunk': '../textures/environmentMap/cyberpunk.png',
+      'Fantasy Village': '../textures/environmentMap/fantasy-village.png',
+      'Manga': '../textures/environmentMap/manga.png',
+      'Medieval': '../textures/environmentMap/medieval.png',
+      'Snowy NYC': '../textures/environmentMap/snowynyc.png'
     };
   
-    let currentEnvMap = './textures/environmentMap/cyberpunk.png';
+    let currentEnvMap = '../textures/environmentMap/cyberpunk.png';
   
     gui.add({ envMap: currentEnvMap }, 'envMap', envMapOptions)
        .name('Environment Map')
@@ -258,12 +258,12 @@ function init() {
        });
     
     const floorTextureOptions = {
-      'Concrete': './textures/floor/concrete/concreteBaseColor.jpg',
-      'Dark Marble': './textures/floor/darkmarble/Marble_Blue_004_basecolor.jpg',
-      'Shaggy': './textures/floor/shaggy.png'
+      'Concrete': '../textures/floor/concrete/concreteBaseColor.jpg',
+      'Dark Marble': '../textures/floor/darkmarble/Marble_Blue_004_basecolor.jpg',
+      'Shaggy': '../textures/floor/shaggy.png'
     };
     
-    let currentFloorTexture = './textures/floor/darkmarble/Marble_Blue_004_basecolor.jpg';
+    let currentFloorTexture = '../textures/floor/darkmarble/Marble_Blue_004_basecolor.jpg';
 
     gui.add({ floorTexture: currentFloorTexture }, 'floorTexture', floorTextureOptions)
      .name('Floor Texture')
