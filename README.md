@@ -79,15 +79,50 @@ this.renderer.update();
 
 <br><br>
 
-**Camera**<br>
-  `camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );`<br>
-  `camera.position.y = 10;`<br>
-  `camera.position.z = 50;`
+## The Environment
+The `Environment` class handles the creation and rendering of the lighting, environment map and mesh objects.
+<br>
 
-- Camera
-- Scene
-- Environment Map
-- Lights
+```javascript
+setLight(){
+  this.light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 2.5);
+  this.light.position.set( 0.5, 1, 0.75 );
+  this.scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
+  this.scene.add(this.light);
+  //...
+}
+```
+<br>
+
+```javascript
+setEnvironmentMap = () => {
+  this.environmentMap = this.textureLoader.load('/textures/environmentMap/00.png');
+  this.environmentMap.mapping = THREE.EquirectangularReflectionMapping;
+  this.environmentMap.colorSpace = THREE.SRGBColorSpace;
+  this.scene.background = this.environmentMap;
+}
+```
+
+<br>
+
+```javascript
+setFloor = () => {
+  this.floorGeometry = new THREE.CircleGeometry( 100, 64, 0, 2 * Math.PI );
+  this.floorGeometry.rotateX( - Math.PI / 2 );
+
+  const floorTexturePathURL = '/textures/floor/dirt/color.jpg'
+  const floorTexture = this.textureLoader.load(floorTexturePathURL);
+  floorTexture.repeat.set(20, 20);
+  floorTexture.wrapS = THREE.RepeatWrapping;
+  floorTexture.wrapT = THREE.RepeatWrapping;
+
+  const floorMaterial = new THREE.MeshBasicMaterial( { map: floorTexture } );
+  
+  const floor = new THREE.Mesh( this.floorGeometry, floorMaterial );
+  this.scene.add(floor);
+}
+```
+
 
 ### The Objects
 - Objects
