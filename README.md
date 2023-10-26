@@ -72,6 +72,8 @@ constructor(_canvas){
     
   }
 ```
+> Caption for code block
+
 
 **Camera**<br>
   `camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );`<br>
