@@ -1,16 +1,101 @@
 # Artifact Adventure
-
 Artifact Adventure is a dynamic Three.js demo that transforms curated art from The Met Museum's API into immersive 3D experiences within your web browser.
 
-## Functionality
-In Artifact Adventure, users will be able to:
-- Navigate the virtual museum using WASD keys while under-the-hood Three.js re-renders the Camera object in real-time.
-- Pointer-lock controls allow users to use their mouse to pan, rotate, and view their environment in first-person POV.
-- Render different virtual environments instantly.
-- Lighting, shadows, textures, and reflections respond to their virtual environments in real-time.
-- View artwork from The Met Museum API rendered in 3D.
+[Visit Artifact Adventure](https://garysbot.github.io/artifact-adventure/)
+<br><br>
 
-## Technologies, Libraries, APIs
+## Features
+In Artifact Adventure, users:
+- Navigate the virtual museum using WASD keys while Three.js re-renders the 3D environment in real-time under-the-hood.
+- Use pointer-lock controls so you can pan, rotate, and view the environment from a first-person POV.
+- Render different virtual environments instantly.
+- Watch as lighting, shadows, textures, and reflections respond to their virtual environments in real-time.
+- View artwork from The Met Museum API rendered in 3D.
+<br><br>
+
+## Instructions
+Interacting with [Artifact Adventure](https://garysbot.github.io/artifact-adventure/) is easy and intuitive:
+- ***Start*** the demo with a ***left-click*** on your mouse.
+- ***Move*** around the 3D environment with your ***WASD*** keys.
+- ***Look*** at your surroundings with your ***mouse***.
+- ***Jump*** with the ***spacebar***.
+- ***Pause*** the demo by pressing ***ESC***.
+<br><br>
+
+## Object-Oriented Design Principles
+Artifact Adventure is composed of the following Three.js components:
+- Camera
+- Scene
+- Lights
+- Mesh Objects
+- Environment Map
+- Renderer
+
+Each Three.js component is responsible for working with a distinct aspect of the WebGL JavaScript API to render high-performance 3D graphics in any web browser.
+
+### The Experience
+![Artifact Adventure Environment GIF](static/readme/gifs/environment.gif)<br>
+
+The `Experience` class manages the complete experience by:
+1. Accepting a HTML `canvas` DOM element as an argument,
+2. Instantiating all necessary component classes and,
+3. Handles persistent animation via a `requestAnimationFrame` loop.
+
+```
+constructor(_canvas){
+    // Singleton
+    if(instance){
+      return instance
+    }
+    instance = this
+  
+    // Global access
+    window.experience = this
+
+    // Options
+    this.canvas = _canvas
+
+    // Setup
+    this.debug = new Debug();
+    this.sizes = new Sizes();
+    this.time = new Time()
+    this.scene = new THREE.Scene();
+    this.camera = new Camera()
+    this.environment = new Environment();
+    this.renderer = new Renderer()
+
+    this.time.on('tick', () => {
+      this.update();
+    })
+    
+  }
+```
+
+**Camera**<br>
+  `camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );`<br>
+  `camera.position.y = 10;`<br>
+  `camera.position.z = 50;`
+
+
+- Camera
+- Scene
+- Environment Map
+- Lights
+
+### The Objects
+- Objects
+- Floor
+- Art Objects
+
+### The Rendering
+- Renderer
+- WASD Controls
+- PointerLock Controls
+- Gravity
+
+<br><br>
+
+## Tech Stack
 - Node.js
 - Three.js
 - lil-gui
@@ -21,66 +106,8 @@ In Artifact Adventure, users will be able to:
 - DALL-E 3
 - The Metropolitan Museum of Art Collection API
 
-
-## Implementation Timeline
-### TH 10/19
-- ✅ Researching 2D & 3D libraries, frameworks, and workflows.
-- ✅ Write pseudo-code structure for creating a room environment in both 2D and 3D to understand tradeoffs.
-
-### F 10/20
-- ✅ Decision on 2D or 3D -> 3D direction decided.
-- ✅ Identified Three.js class objects & inheritance chains for overall application.
-- ✅ Identified Three.js camera and camera controllers necessary to update a user's "physical position" in response to their WASD key inputs.
-- ✅ Build bare bones MVP room environment; responsive & full-screen.
-
-### SA 10/21
-- ✅ Develop user movement functionality to move throughout the room with WASD keys.
-- ✅ Ensure camera and animating loops continue to follow character's POV/FOV.
-- ✅ Added lil-gui for UI debugging.
-- ✅ Testing Met Museum API.
-
-### SU 10/22
-- ✅ Implement environment mapping into bare-bones MVP room environment.
-- ✅ Add lighting, shadows, reflections; update positioning of temporary room objects.
-- ✅ Add pointer-lock controls to allow user to pan, rotate, view with their mouse in first-person POV.
-
-### M 10/23
-- ✅ Add floor geometry and accompanied textures.
-- ✅ Add Met Museum artwork objects.
-- ✅ Add additional environment map designs.
-- ✅ Add art geometry, mesh, and objects to contain Met Museum art.
-
-### T 10/24
-- ✅ Testing, debugging, refactoring code.
-
-### W 10/25
-- ✅ Testing, debugging, refactoring code.
-- ✅ Add ability to update environment map, floor texture, lighting and environment settings via modal.
-- ✅ Add loading/pause screen; welcome/about description; user-control instructions; personal links; favicon.
-
-### TH 10/26
-- ✅ Testing, debugging, refactoring code.
-- ✅ Writing production readme.
-
 ## Production README
-- Link to live version.
-- Instructions on how to play/interact with the project.
-- List of technologies / libraries / APIs used.
 - Technical implementation details with (good-looking) code snippets.
 - To-dos / future features.
 - No .DS_Store files / debuggers / console.logs.
 - Organized file structure, with /src and /dist directories.
-
-<br>
-
-## Technical Implementation
-### Classes
-- Sizes
-- sources
-- Debug
-- Floor
-- World
-- Environment
-- Resources
-- Renderer
-- Camera
