@@ -1,37 +1,14 @@
-# aA Project #1: JavaScript
+# Artifact Adventure
 
-## Background
 Artifact Adventure is a dynamic Three.js demo that transforms curated art from The Met Museum's API into immersive 3D experiences within your web browser.
 
-## Functionality & MVPs
+## Functionality
 In Artifact Adventure, users will be able to:
 - Navigate the virtual museum using WASD keys while under-the-hood Three.js re-renders the Camera object in real-time.
 - Pointer-lock controls allow users to use their mouse to pan, rotate, and view their environment in first-person POV.
 - Render different virtual environments instantly.
 - Lighting, shadows, textures, and reflections respond to their virtual environments in real-time.
 - View artwork from The Met Museum API rendered in 3D.
-
-In addition this project will include:
-- Instructions on how to interact with the game.
-- Production readme explaining technology and their role/functionality in the program.
-
-
-## Wireframes
-### [01] Loading Screen
-![plot](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/1.png)
-
-### [02] Opening Scene
-![Wireframe 02](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/2.png)
-
-### [03] Entering a Gallery
-![Wireframe 03](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/3.png)
-
-### [04] Looking at Art
-![Wireframe 04](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/4.png)
-
-### [05] Engaging with Art
-![Wireframe 05](https://github.com/garysbot/aa-project-one-javascript/blob/main/wireframes/5.png)
-
 
 ## Technologies, Libraries, APIs
 - Node.js
