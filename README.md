@@ -55,7 +55,7 @@ this.time.on('tick', () => {
   this.update();
 })
 ```
-<br>
+<br><br>
 
 ```javascript
 // Experience.js
@@ -81,7 +81,6 @@ this.renderer.update();
   `camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );`<br>
   `camera.position.y = 10;`<br>
   `camera.position.z = 50;`
-
 
 - Camera
 - Scene
