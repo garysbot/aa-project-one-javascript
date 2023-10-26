@@ -85,18 +85,7 @@ this.renderer.update();
 The `Environment` class handles the creation and rendering of the lighting, environment map and mesh objects.
 <br>
 
-![Artifact Adventure Lighting GIF](static/readme/gifs/lighting.gif)<br>
-
-```javascript
-setLight(){
-  this.light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 2.5);
-  this.light.position.set( 0.5, 1, 0.75 );
-  this.scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
-  this.scene.add(this.light);
-  //...
-}
-```
-<br>
+![Artifact Adventure Environment Map GIF](static/readme/gifs/environmentmap.gif)<br>
 
 ```javascript
 setEnvironmentMap = () => {
@@ -106,8 +95,9 @@ setEnvironmentMap = () => {
   this.scene.background = this.environmentMap;
 }
 ```
-
 <br>
+
+![Artifact Adventure Floor GIF](static/readme/gifs/floor.gif)<br>
 
 ```javascript
 setFloor = () => {
@@ -126,6 +116,20 @@ setFloor = () => {
   this.scene.add(floor);
 }
 ```
+<br>
+
+![Artifact Adventure Lighting GIF](static/readme/gifs/lighting.gif)<br>
+
+```javascript
+setLight(){
+  this.light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 2.5);
+  this.light.position.set( 0.5, 1, 0.75 );
+  this.scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
+  this.scene.add(this.light);
+  //...
+}
+```
+<br>
 
 
 ### The Objects
