@@ -1,15 +1,14 @@
 # Artifact Adventure
-Artifact Adventure is a dynamic Three.js demo that transforms curated art from The Met Museum's API into immersive 3D experiences within your web browser.
+Artifact Adventure is a dynamic Three.js demo that transforms curated art from The Met Museum's API into an immersive 3D experience within your browser.
 
 [Visit Artifact Adventure](https://garysbot.github.io/artifact-adventure/)
 <br><br>
 
 ## Features
 In Artifact Adventure, users:
-- Navigate the virtual museum using WASD keys while Three.js re-renders the 3D environment in real-time under-the-hood.
-- Use pointer-lock controls so you can pan, rotate, and view the environment from a first-person POV.
+- Navigate a first-person 3D virtual art exhibit with WASD and mouse controls.
 - Render different virtual environments instantly.
-- Watch as lighting, shadows, textures, and reflections respond to their virtual environments in real-time.
+- Lighting, shadows, textures, and reflections respond in real-time to their virtual environments.
 - View artwork from The Met Museum API rendered in 3D.
 <br><br>
 
@@ -23,7 +22,7 @@ Interacting with [Artifact Adventure](https://garysbot.github.io/artifact-advent
 <br><br>
 
 ## Object-Oriented Design Principles
-Each Three.js component is responsible for working with a distinct aspect of the WebGL JavaScript API to render high-performance 3D graphics in any web browser. 
+Each Three.js component handles a specific part of WebGL to render high-performance 3D graphics in your browser.
 
 Artifact Adventure is composed of the following components:
 - Camera
@@ -32,7 +31,6 @@ Artifact Adventure is composed of the following components:
 - Mesh Objects
 - Environment Map
 - Renderer
-
 
 ### The Experience
 ![Artifact Adventure Environment GIF](static/readme/gifs/environment.gif)<br>
