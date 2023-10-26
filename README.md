@@ -23,7 +23,9 @@ Interacting with [Artifact Adventure](https://garysbot.github.io/artifact-advent
 <br><br>
 
 ## Object-Oriented Design Principles
-Artifact Adventure is composed of the following Three.js components:
+Each Three.js component is responsible for working with a distinct aspect of the WebGL JavaScript API to render high-performance 3D graphics in any web browser. 
+
+Artifact Adventure is composed of the following components:
 - Camera
 - Scene
 - Lights
@@ -31,7 +33,6 @@ Artifact Adventure is composed of the following Three.js components:
 - Environment Map
 - Renderer
 
-Each Three.js component is responsible for working with a distinct aspect of the WebGL JavaScript API to render high-performance 3D graphics in any web browser.
 
 ### The Experience
 ![Artifact Adventure Environment GIF](static/readme/gifs/environment.gif)<br>
@@ -42,6 +43,8 @@ The `Experience` class manages the complete experience by:
 3. Handles persistent animation via a `requestAnimationFrame` loop.
 
 ```
+// Experience.js
+
 constructor(_canvas){
     // Singleton
     if(instance){
