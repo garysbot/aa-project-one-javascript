@@ -3,9 +3,7 @@ Artifact Adventure is a dynamic Three.js demo that transforms curated art from T
 
 [Visit Artifact Adventure](https://garysbot.github.io/artifact-adventure/)<br>
 
-![Artifact Adventure Environment GIF](static/readme/gifs/environment.gif)<br>
-
-<br><br>
+![Artifact Adventure Environment GIF](static/readme/gifs/environment.gif)<br><br>
 
 ## Features
 In Artifact Adventure, users:
