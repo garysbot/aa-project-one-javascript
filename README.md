@@ -72,7 +72,7 @@ constructor(_canvas){
     
   }
 ```
-> Caption for code block
+<!-- > Caption for code block -->
 
 
 **Camera**<br>
