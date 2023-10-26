@@ -73,7 +73,36 @@ constructor(_canvas){
   }
 ```
 <!-- > Caption for code block -->
+<br><br>
+```javascript
+// Experience.js
+update = () => {
+    requestAnimationFrame( this.update );
+    const time = performance.now();
 
+    if ( this.camera.controls.isLocked === true ) {
+      const delta = ( time - prevTime ) / 1000;
+
+      velocity.x -= velocity.x * 10.0 * delta;
+      velocity.z -= velocity.z * 10.0 * delta;
+
+      direction.z = Number( this.camera.moveForward ) - Number( this.camera.moveBackward );
+      direction.x = Number( this.camera.moveRight ) - Number( this.camera.moveLeft );
+      direction.normalize(); // this ensures consistent movements in all directions
+
+      if ( this.camera.moveForward || this.camera.moveBackward ) velocity.z -= direction.z * 400.0 * delta;
+      if ( this.camera.moveLeft || this.camera.moveRight ) velocity.x -= direction.x * 400.0 * delta;
+
+      this.camera.controls.moveRight( - velocity.x * delta );
+      this.camera.controls.moveForward( - velocity.z * delta );
+    }
+
+    prevTime = time;
+
+    this.renderer.instance.render( this.scene, this.camera );
+    this.renderer.update();
+  }
+```
 
 **Camera**<br>
   `camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );`<br>
