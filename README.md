@@ -77,12 +77,13 @@ this.renderer.update();
 ```
 > The `update()` class function listens for WASD key presses to trigger and update camera movement while re-rendering in real-time to simulate movement throughout the 3D environment.<br><br>
 > **Note:** Excerpted for length & clarity.
-
 <br><br>
 
 ## The Environment
 The `Environment` class handles the creation and rendering of the lighting, environment map and mesh objects.
 <br>
+
+![Artifact Adventure Lighting GIF](static/readme/gifs/lighting.gif)<br>
 
 ```javascript
 setLight(){
