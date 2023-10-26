@@ -129,7 +129,6 @@ setLight(){
   //...
 }
 ```
-
 <br><br>
 
 ## Tech Stack
