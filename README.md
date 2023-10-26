@@ -59,6 +59,8 @@ this.time.on('tick', () => {
 ```
 <br>
 
+![Artifact Adventure Animation GIF](static/readme/gifs/animation.gif)<br>
+
 ```javascript
 // Experience.js
 requestAnimationFrame(this.update);
