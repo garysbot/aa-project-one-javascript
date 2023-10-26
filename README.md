@@ -144,4 +144,6 @@ setLight(){
 <br>
 
 ## Future
-- To-dos
+- Resolve disposal of objects in refactored version to reduce lag.
+- Add "Teleport" feature to allow user to change all environment features simultaneously.
+- Add music for each gallery room with play & pause.
