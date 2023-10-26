@@ -1,7 +1,10 @@
 # Artifact Adventure
-Artifact Adventure is a dynamic Three.js demo that transforms curated art from The Met Museum's API into an immersive 3D experience within your browser.
+Artifact Adventure is a dynamic Three.js demo that transforms curated art from The Met Museum's API into an immersive 3D experience directly in your browser.
 
-[Visit Artifact Adventure](https://garysbot.github.io/artifact-adventure/)
+[Visit Artifact Adventure](https://garysbot.github.io/artifact-adventure/)<br>
+
+![Artifact Adventure Environment GIF](static/readme/gifs/environment.gif)<br>
+
 <br><br>
 
 ## Features
