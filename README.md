@@ -74,6 +74,7 @@ this.renderer.instance.render( this.scene, this.camera );
 this.renderer.update();
 ```
 > **Note:** Excerpted for length & clarity.
+
 <br><br>
 
 **Camera**<br>
