@@ -43,66 +43,48 @@ The `Experience` class manages the complete experience by:
 
 ```javascript
 // Experience.js
+  this.debug = new Debug();
+  this.sizes = new Sizes();
+  this.time = new Time()
+  this.scene = new THREE.Scene();
+  this.camera = new Camera()
+  this.environment = new Environment();
+  this.renderer = new Renderer()
 
-constructor(_canvas){
-    // Singleton
-    if(instance){
-      return instance
-    }
-    instance = this
-  
-    // Global access
-    window.experience = this
-
-    // Options
-    this.canvas = _canvas
-
-    // Setup
-    this.debug = new Debug();
-    this.sizes = new Sizes();
-    this.time = new Time()
-    this.scene = new THREE.Scene();
-    this.camera = new Camera()
-    this.environment = new Environment();
-    this.renderer = new Renderer()
-
-    this.time.on('tick', () => {
-      this.update();
-    })
-    
-  }
+  this.time.on('tick', () => {
+    this.update();
+  })
 ```
-<!-- > Caption for code block -->
-<br><br>
+<br>
 ```javascript
 // Experience.js
-update = () => {
-    requestAnimationFrame( this.update );
-    const time = performance.now();
 
-    if ( this.camera.controls.isLocked === true ) {
-      const delta = ( time - prevTime ) / 1000;
+  requestAnimationFrame( this.update );
+  const time = performance.now();
 
-      velocity.x -= velocity.x * 10.0 * delta;
-      velocity.z -= velocity.z * 10.0 * delta;
+  if ( this.camera.controls.isLocked === true ) {
+    const delta = ( time - prevTime ) / 1000;
 
-      direction.z = Number( this.camera.moveForward ) - Number( this.camera.moveBackward );
-      direction.x = Number( this.camera.moveRight ) - Number( this.camera.moveLeft );
-      direction.normalize(); // this ensures consistent movements in all directions
+    velocity.x -= velocity.x * 10.0 * delta;
+    velocity.z -= velocity.z * 10.0 * delta;
 
-      if ( this.camera.moveForward || this.camera.moveBackward ) velocity.z -= direction.z * 400.0 * delta;
-      if ( this.camera.moveLeft || this.camera.moveRight ) velocity.x -= direction.x * 400.0 * delta;
+    direction.z = Number( this.camera.moveForward ) - Number( this.camera.moveBackward );
+    direction.x = Number( this.camera.moveRight ) - Number( this.camera.moveLeft );
+    direction.normalize(); // this ensures consistent movements in all directions
 
-      this.camera.controls.moveRight( - velocity.x * delta );
-      this.camera.controls.moveForward( - velocity.z * delta );
-    }
+    if ( this.camera.moveForward || this.camera.moveBackward ) velocity.z -= direction.z * 400.0 * delta;
+    if ( this.camera.moveLeft || this.camera.moveRight ) velocity.x -= direction.x * 400.0 * delta;
 
-    prevTime = time;
-
-    this.renderer.instance.render( this.scene, this.camera );
-    this.renderer.update();
+    this.camera.controls.moveRight( - velocity.x * delta );
+    this.camera.controls.moveForward( - velocity.z * delta );
   }
-```
+
+  prevTime = time;
+
+  this.renderer.instance.render( this.scene, this.camera );
+  this.renderer.update();
+}```
+
 
 **Camera**<br>
   `camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000 );`<br>
