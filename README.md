@@ -33,6 +33,8 @@ Artifact Adventure is composed of the following components:
 - Environment Map
 - Renderer
 
+<br><br>
+
 ## The Experience
 ![Artifact Adventure Environment GIF](static/readme/gifs/environment.gif)<br>
 
@@ -55,7 +57,7 @@ this.time.on('tick', () => {
   this.update();
 })
 ```
-<br><br>
+<br>
 
 ```javascript
 // Experience.js
